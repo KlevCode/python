@@ -1,26 +1,34 @@
-from turtle import Screen, Turtle
-from snake import Snake
-import time
+import tkinter as tk
+from PIL import Image, ImageTk
+import Timer
 
-screen = Screen()
-screen.setup(width=500, height=500)
-screen.bgcolor("black")
-screen.title("Snake Game!!")
-screen.tracer(0)
 
-snake = Snake()
 
-screen.listen()
-screen.onkey(snake.up, "Up")
-screen.onkey(snake.down, "Down")
-screen.onkey(snake.left, "Left")
-screen.onkey(snake.right, "Right")
+root = tk.Tk()
 
-game_is_on = True
-while game_is_on:
-    screen.update()
-    time.sleep(0.1)
+root.title("Pomodoro-Timer")
 
-    snake.move()
+canvas = tk.Canvas(root, width=600, height=300)
+canvas.grid(columnspan=3, rowspan=3)
 
-screen.exitonclick()
+# Einfügen des Logos
+logo = Image.open('/home/hauke/Dokumente/Code/Python/tkinter/large.png')
+logo = ImageTk.PhotoImage(logo)
+logo_label = tk.Label(image=logo)
+logo_label.image = logo
+logo_label.grid(column=1, row=0)
+
+# Anweisung, Button zu drücken
+instructions = tk.Label(root, text="Button klicken um 25-Minuten-Timer zu starten", font="Raleway")
+instructions.grid(columnspan=3, column=0, row=1)
+
+# Timer-Klasse
+
+class Timer(time):
+  def __init__(self):
+
+
+# Funktion zum starten des Timers
+
+
+
